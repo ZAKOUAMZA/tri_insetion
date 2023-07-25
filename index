@@ -1,0 +1,33 @@
+function tri_insertion(tab,comp){
+    for(let i=1;i<tab.length;i++){
+        let temp=tab[i];
+        let j=i-1;
+        while(j>=0){
+        if(comp ? comp(tab[j],temp)>0 : tab[j].value>temp.value){
+                tab[j+1]=tab[j];
+        } 
+         else{
+            break;
+        }
+            j--;
+        }
+       
+       
+        tab[j+1]=temp;
+    }
+    return tab;
+}
+
+let myArray=[
+    { value:10},
+     { value:8},
+          { value:25},
+
+      { value:9},
+       { value:5},
+    
+    
+    ];
+    
+    let nouv= tri_insertion(myArray);
+    console.log(nouv);
